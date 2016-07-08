@@ -1,4 +1,9 @@
 class Post < ActiveRecord::Base
+  has_many :comments, dependent: :destroy
+  belongs_to :category
+  belongs_to :user
+  paginates_per 10
+
   validates :title, presence: true, uniqueness: true, length: {minimum: 7}
   validates :body, presence: true
 
@@ -10,7 +15,15 @@ class Post < ActiveRecord::Base
     if body.length < 100
       body
     else
-      "#{body[0..99]}..."
+      "#{body[0..96]}..."
     end
+  end
+
+  def category_title
+    category.title if category
+  end
+
+  def user_full_name
+    user.full_name if user
   end
 end

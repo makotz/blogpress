@@ -60,3 +60,21 @@ Do the above in `TDD style`
 - Each comment must have a "body" attached to it. Make sure that on the post show page you list all the comments ordered by creation date. List the most recent at the top.
 - Add standard user authentication for your Blog. Make sure your user has first name, last name and email.
 - Implement the ability to edit the user's first name, last name and email for your blog project. Make it so when the user clicks on his/her name they go to a page where they can edit their information.
+
+#### Assignment 6
+Implement a `forgot password` feature for your Blog application that works as follows:
+- In the sign-in page have a link called "forgot password? click here"
+- The link above should take the user to a page where they can enter their email
+- After entering their email and hitting `submit` the user should technically get an email with a link. Don't worry about sending an email now as we haven't heard that yet but make sure you have a link with a token to reset the password.
+- When the user visits the page with that link it should show three fields: new password and new password confirmation
+- To change the password the user must enter matching password
+- The user is redirected to the sign-in page to sign in with new credentials
+
+##### Stretch 1:
+- Have the `reset password` link expire in three days
+
+##### Stretch 2:
+- The `has_secure_password` feature is a solid one and in most circumstances you don't need to write you own or change it. For the sake of practice comment out `has_secure_password` and make sure your Blog application still works. Remember to ensure that the password gets Hashes and remember to make sure you have an `authenticate` method that works as the built-in one does. Also, make sure to have the same built-in validations.
+
+##### Stretch 3:
+- Implement the ability to lock an account if there have been 10 failed sign in attempts to your Blog tool. After that they must use the `forgot password` feature to reset the password.
