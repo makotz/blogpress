@@ -1,5 +1,5 @@
-# Angela's Rails Blog
-
+# BlogPress
+_Angela's Rails Application_
 A simple blog built with Ruby on Rails
 
 #### Assignment 1
@@ -11,3 +11,13 @@ A simple blog built with Ruby on Rails
 - Create a navigation bar that applies to all pages. The navigation bar must include links to "home" and "about" pages
 - Put all of your code on GitHub
 - Submit the Github link
+
+#### Assignment 2
+#####Build four of your main models: post, comment, category and contact (don't worry about associations yet, will add those later).
+
+Here are a summary of suggested fields and validations (feel free to add to those)
+
+`Post: title(required & unique), body
+Comment: body (required & unique per blog post)
+Category: title (required)
+Contact: email, name, subject and message`
