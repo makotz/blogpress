@@ -24,12 +24,15 @@ class PostsController < ApplicationController
   end
 
   def index
-    if params[:all] == "all"
-      @posts = Post.order("id").page params[:page]
+    if params[:q]
+      session[:q] = params[:q]
+      @posts = Post.search(session[:q]).order("updated_at DESC").page params[:page]
+    elsif params[:all] == "all"
+      @posts = Post.order("updated_at DESC").page params[:page]
     elsif params[:all] == "user"
-      @posts = Post.where(user_id: current_user.id).order("id").page params[:page]
+      @posts = Post.where(user_id: current_user.id).order("updated_at DESC").page params[:page]
     else
-      @posts = Post.order("id").page params[:page]
+      @posts = Post.order("updated_at DESC").page params[:page]
     end
   end
 
@@ -52,15 +55,10 @@ class PostsController < ApplicationController
     flash[:notice] = "Your post was deleted!"
   end
 
-  def search
-    session[:q] = params[:q]
-    @results = Post.search(session[:q]).page params[:page]
-  end
-
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :category_id, :user_id)
+    params.require(:post).permit(:title, :body, :category_id)
   end
 
   def find_post

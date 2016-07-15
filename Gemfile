@@ -15,9 +15,14 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'faker'
-gem 'kaminari', '~> 0.16.3'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'cancancan'
+gem 'font-awesome-rails'
+gem 'delayed_job_active_record'
+gem 'quiet_assets'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
