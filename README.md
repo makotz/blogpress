@@ -78,3 +78,10 @@ Implement a `forgot password` feature for your Blog application that works as fo
 
 ##### Stretch 3:
 - Implement the ability to lock an account if there have been 10 failed sign in attempts to your Blog tool. After that they must use the `forgot password` feature to reset the password.
+
+#### Assignment 7
+- AJAXify favouriting and unfavouriting blog posts for your blog tool so that page doesn't reload when the use favourite or unfavourite a post.
+- Make creating comments for posts use AJAX so that the page doesn't reload.
+- Make deleting a comment use AJAX
+##### Stretch 1:
+- Enable comment editing / Updating with AJAX

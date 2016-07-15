@@ -311,3 +311,245 @@ Processing by HomeController#about as HTML
   Rendered home/about.html.erb within layouts/application (0.0ms)
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
 Completed 200 OK in 68ms (Views: 67.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2016-07-14 19:33:30 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (12.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (4.9ms)
+  [1m[35mUser Load (17.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 5828ms (Views: 5778.5ms | ActiveRecord: 38.1ms)
+
+
+Started DELETE "/sessions" for ::1 at 2016-07-14 19:33:40 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cm4So/UlQEhPeWYOpVtLOaG3XJSIhDXK3gIEnokeTrrbyBmFK06M49U0ZYFloKxyFjVFbgSNL1TPq76uoLlbag=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-07-14 19:33:40 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 68ms (Views: 67.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2016-07-14 19:33:42 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (1.9ms)
+  Rendered sessions/new.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 122ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for ::1 at 2016-07-14 19:33:44 -0700
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 59ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2016-07-14 19:33:52 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (725.9ms)
+  Rendered users/new.html.erb within layouts/application (729.7ms)
+Completed 200 OK in 803ms (Views: 802.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-07-14 19:34:07 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zb79Quovoy9V1F7d6eMXpFXPZvGIDNwGsHpLQOt0GgrMGPZkNERvhM+ZXVIpGPDv4k1/CwQFxpih0/FwwtMP2g==", "user"=>{"first_name"=>"Angela", "last_name"=>"Ji", "email"=>"twilight.luminara@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'twilight.luminara@gmail.com' LIMIT 1
+  [1m[36mSQL (9.0ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Angela"], ["last_name", "Ji"], ["email", "twilight.luminara@gmail.com"], ["password_digest", "$2a$10$h/hXRphjAhx1T88psf1DyenrkdZiG0UZqMAtiYT1qsUpIN5785rsW"], ["created_at", "2016-07-15 02:34:07.488886"], ["updated_at", "2016-07-15 02:34:07.488886"]]
+  [1m[35m (11.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 120ms (ActiveRecord: 20.6ms)
+
+
+Started GET "/" for ::1 at 2016-07-14 19:34:07 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 63ms (Views: 61.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/sessions" for ::1 at 2016-07-14 19:34:12 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LQ2okU0RKEFaeanZKmTcG+iDhrlOeXx+HiH9mlutLk+Eq6O3k3rk6sA0qlbqnztQXwGfQ8JwZuAPiEeqcgo7nw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-07-14 19:34:12 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 72ms (Views: 72.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2016-07-14 19:34:15 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 74ms (Views: 73.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2016-07-14 19:34:15 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.5ms)
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 75ms (Views: 74.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for ::1 at 2016-07-14 19:34:17 -0700
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 65ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/password_resets" for ::1 at 2016-07-14 19:34:20 -0700
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bCg1Bv1YIbCfUDiIM3nHd8T5FgrPWfe8AloNpmlaCxPFjj4gIzPtGwUdOwfzgiA8c3sP8ENQ7SIT87eWQP0eww==", "email"=>"twilight.luminara@gmail.com", "commit"=>"Reset Password"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "twilight.luminara@gmail.com"]]
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."password_reset_token" = $1 LIMIT 1[0m  [["password_reset_token", "VKeo8elTcXPaQnCMXVBRRA"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "password_reset_token" = $1, "password_reset_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_reset_token", "VKeo8elTcXPaQnCMXVBRRA"], ["password_reset_sent_at", "2016-07-15 02:34:20.195033"], ["updated_at", "2016-07-15 02:34:20.195879"], ["id", 2]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (0.3ms)
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (0.7ms)
+
+UserMailer#password_reset: processed outbound mail in 491.6ms
+
+Sent mail to twilight.luminara@gmail.com (663.6ms)
+Date: Thu, 14 Jul 2016 19:34:20 -0700
+From: from@example.com
+To: twilight.luminara@gmail.com
+Message-ID: <57884bacb603e_482b3fef068a55cc89967@Angelas-MacBook-Pro.local.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_57884bacb0dc0_482b3fef068a55cc898b8";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_57884bacb0dc0_482b3fef068a55cc898b8
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password, click the URL below.
+
+http://localhost:3000/password_resets/VKeo8elTcXPaQnCMXVBRRA/edit
+
+If you did not request your password to be reset, just ignore this email and your password will continue to stay the same.
+
+
+----==_mimepart_57884bacb0dc0_482b3fef068a55cc898b8
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Reset Password</h1>
+
+  </body>
+</html>
+
+----==_mimepart_57884bacb0dc0_482b3fef068a55cc898b8--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 1205ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2016-07-14 19:34:21 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 58ms (Views: 57.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2016-07-14 19:46:51 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 3642ms (Views: 3641.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2016-07-14 19:46:55 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.5ms)
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 86ms (Views: 85.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for ::1 at 2016-07-14 19:46:57 -0700
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 63ms (Views: 63.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/password_resets" for ::1 at 2016-07-14 19:47:26 -0700
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+PA8BF42PaK3zE1cX1VhIuWxDsvTm4qxwSriCOkQtLNRVjcigF3xCS2BTtOfroZpUjMXMV+SkC/Qg1g4wLehYw==", "email"=>"twilight.luminara@gmail.com", "commit"=>"Reset Password"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "twilight.luminara@gmail.com"]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."password_reset_token" = $1 LIMIT 1  [["password_reset_token", "M6ygW8AZ8rSZrVqc3wjXxA"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "password_reset_token" = $1, "password_reset_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["password_reset_token", "M6ygW8AZ8rSZrVqc3wjXxA"], ["password_reset_sent_at", "2016-07-15 02:47:26.900015"], ["updated_at", "2016-07-15 02:47:26.900627"], ["id", 2]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (0.2ms)
+
+UserMailer#password_reset: processed outbound mail in 26.5ms
+
+Sent mail to twilight.luminara@gmail.com (635.3ms)
+Date: Thu, 14 Jul 2016 19:47:26 -0700
+From: from@example.com
+To: twilight.luminara@gmail.com
+Message-ID: <57884ebee4d3f_482b3fef07319e7c901e5@Angelas-MacBook-Pro.local.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_57884ebee3d3d_482b3fef07319e7c900eb";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_57884ebee3d3d_482b3fef07319e7c900eb
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password, click the URL below.
+
+http://localhost:3000/password_resets/M6ygW8AZ8rSZrVqc3wjXxA/edit
+
+If you did not request your password to be reset, just ignore this email and your password will continue to stay the same.
+
+
+----==_mimepart_57884ebee3d3d_482b3fef07319e7c900eb
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Reset Password</h1>
+
+  </body>
+</html>
+
+----==_mimepart_57884ebee3d3d_482b3fef07319e7c900eb--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 675ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/" for ::1 at 2016-07-14 19:47:27 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 67ms (Views: 66.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for ::1 at 2016-07-14 19:50:57 -0700
+Processing by HomeController#about as HTML
+  Rendered home/about.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 129ms (Views: 128.4ms | ActiveRecord: 0.0ms)
