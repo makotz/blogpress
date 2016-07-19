@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # get "/sessions/forgot_password" => "sessions#forgot_password"
 
   resources :posts do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:index, :create, :destroy]
     # get "/comments/:id" => "posts#show"
     # post "/" => "posts#index", on: :collection
     resources :favorites, only: [:create, :destroy]
@@ -27,4 +27,13 @@ Rails.application.routes.draw do
   resources :password_resets
 
   root "home#index"
+
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :posts
+    end
+  end
+
+  get "/auth/twitter", as: :sign_in_with_twitter
+  get "/auth/twitter/callback" => "callbacks#twitter"
 end

@@ -11,16 +11,28 @@ class PostsController < ApplicationController
     @post = Post.new post_params
     @post.user = current_user
     if @post.save
-      redirect_to post_path(@post)
-      flash[:notice] = "Post created!"
+      if @post.tweet_it
+        client = Twitter::REST::Client.new do |config|
+          config.consumer_key        = ENV["twitter_consumer_key"]
+          config.consumer_secret     = ENV["twitter_consumer_secret"]
+          config.access_token        = current_user.twitter_consumer_token
+          config.access_token_secret = current_user.twitter_consumer_secret
+        end
+        client.update("#{@post.title}: http://rails-blog.herokuapp.com/#{@post.friendly_id}")
+      end
+      redirect_to post_path(@post), notice: "Post created!"
     else
-      render :new
       flash[:alert] = "Post not created!"
+      redirect_to new_post_path
     end
   end
 
   def show
     @comment = Comment.new
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @post}
+    end
   end
 
   def index
@@ -34,35 +46,40 @@ class PostsController < ApplicationController
     else
       @posts = Post.order("updated_at DESC").page params[:page]
     end
+
+    respond_to do |format|
+      format.html { render }
+      format.json { @posts = Post.all
+                    render json: @posts.select(:id, :title) }
+    end
   end
 
   def edit
   end
 
   def update
+    @post.slug = nil
     if @post.update post_params
-      redirect_to post_path(@post)
-      flash[:notice] = "Post updated!"
+      redirect_to post_path(@post), notice: "Post updated!"
     else
-      render :edit
       flash[:alert] = "Post not updated!"
+      render :edit
     end
   end
 
   def destroy
     @post.destroy
-    redirect_to posts_path
-    flash[:notice] = "Your post was deleted!"
+    redirect_to posts_path, notice: "Your post was deleted!"
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :category_id)
+    params.require(:post).permit(:title, :body, :category_id, {images: []}, :tweet_it)
   end
 
   def find_post
-    @post = Post.find params[:id]
+    @post = Post.friendly.find params[:id]
   end
 
   def authorize_user

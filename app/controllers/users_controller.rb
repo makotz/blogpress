@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to root_path, notice: "Sign up successful!"
     else
+      flash[:alert] = "Sign up unsuccessful."
       render :new
     end
   end
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :password)
   end
 
   def find_user
